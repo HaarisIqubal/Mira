@@ -1,0 +1,77 @@
+$md: 768px;
+$lg: 991px;
+$xl: 1199px;
+$xxl: 1440px;
+$xxxl: 2160px;
+
+*{
+    padding: none;
+    margin: none;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1140px;
+}
+
+[class*='col-']{
+    width: 100%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@for $i from 1 through 12 {
+    .col-sm-#{$i}{
+        width: percentage($i/12);
+        flex-basis: percentage($i/12);
+    }
+}
+
+@media only screen and (min-width: $md){
+    @for $i from 1 through 12 {
+        .col-md-#{$i}{
+            width: percentage($i/12);
+            flex-basis: percentage($i/12);
+        }
+    }
+}
+
+@media only screen and (min-width: $lg){
+    @for $i from 1 through 12 {
+        .col-lg-#{$i}{
+            width: percentage($i/12);
+            flex-basis: percentage($i/12);
+        }
+    }
+}
+
+@media only screen and (min-width: $xl){
+    @for $i from 1 through 12 {
+        .col-xl-#{$i}{
+            width: percentage($i/12);
+            flex-basis: percentage($i/12);
+        }
+    }
+}
+
+@media only screen and (min-width: $xl){
+    @for $i from 1 through 12 {
+        .col-xxl-#{$i}{
+            width: percentage($i/12);
+            flex-basis: percentage($i/12);
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: $xxxl){
+    @for $i from 1 through 12 {
+        .col-xxxl-#{$i}{
+            width: percentage($i/12);
+            flex-basis: percentage($i/12);
+        }
+    }
+}
