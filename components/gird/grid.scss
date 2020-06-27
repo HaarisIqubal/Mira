@@ -1,25 +1,43 @@
+$sm: 576px;
 $md: 768px;
 $lg: 991px;
 $xl: 1199px;
-$xxl: 1440px;
-$xxxl: 2160px;
+$xxl: 1399px;
+$xxxl: 2099px;
 
-*{
-    padding: none;
-    margin: none;
-    box-sizing: border-box;
-}
-.container{
-    max-width: 1140px;
-}
 
 [class*='col-']{
     width: 100%;
+    min-height: 1px;
 }
 .row{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+}
+
+.row-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.container:after ,
+.container:before, 
+.row:after,
+.row:before{
+    content: " ";
+}
+
+.container .row {
+    clear: both;
+}
+
+
+.container{
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 @for $i from 1 through 12 {
@@ -27,22 +45,32 @@ $xxxl: 2160px;
         width: percentage($i/12);
         flex-basis: percentage($i/12);
     }
+    .offset-sm-#{$i}{
+        margin-left: percentage($i/12);
+    }
 }
 
-@media only screen and (min-width: $md){
+@media (min-width: $md){
     @for $i from 1 through 12 {
         .col-md-#{$i}{
             width: percentage($i/12);
             flex-basis: percentage($i/12);
         }
+        .offset-md-#{$i}{
+            margin-left: percentage($i/12);
+        }
     }
 }
 
-@media only screen and (min-width: $lg){
+@media (min-width: $lg){
     @for $i from 1 through 12 {
         .col-lg-#{$i}{
             width: percentage($i/12);
             flex-basis: percentage($i/12);
+        }
+
+        .offset-lg-#{$i}{
+            margin-left: percentage($i/12);
         }
     }
 }
@@ -53,6 +81,9 @@ $xxxl: 2160px;
             width: percentage($i/12);
             flex-basis: percentage($i/12);
         }
+        .offset-xl-#{$i}{
+            margin-left: percentage($i/12);
+        }
     }
 }
 
@@ -61,6 +92,9 @@ $xxxl: 2160px;
         .col-xxl-#{$i}{
             width: percentage($i/12);
             flex-basis: percentage($i/12);
+        }
+        .offset-xxl-#{$i}{
+            margin-left: percentage($i/12);
         }
     }
 }
@@ -72,6 +106,9 @@ $xxxl: 2160px;
         .col-xxxl-#{$i}{
             width: percentage($i/12);
             flex-basis: percentage($i/12);
+        }
+        .offset-xxxl-#{$i}{
+            margin-left: percentage($i/12);
         }
     }
 }
